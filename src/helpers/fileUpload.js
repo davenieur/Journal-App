@@ -1,5 +1,5 @@
 export const fileUpload = async( file ) => {
-    if( !file ) throw new Error('No tenemos ningún archivo a subir');
+    if( !file ) return null;
 
     const cloudURL = 'https://api.cloudinary.com/v1_1/didj6izea/upload';
 
@@ -21,7 +21,7 @@ export const fileUpload = async( file ) => {
         return cloudResp.secure_url;
 
     } catch (error) {
-        throw new Error ( error.message );
+      return null;
     }
 
 }
